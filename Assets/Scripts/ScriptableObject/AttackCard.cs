@@ -22,4 +22,10 @@ public class AttackCard : Card
 
 	[SerializeField]
 	int attack;
+
+	public AttackAttribute GetAttackAttribute() 
+	{ return attackAttribute; }
+
+	public int GetAttack() 
+	{ return attack; }
 }

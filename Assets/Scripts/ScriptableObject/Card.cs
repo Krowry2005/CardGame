@@ -9,6 +9,7 @@ public class Card : ScriptableObject
 	{
 		Attack,
 		Defense,
+		Both,
 		Heal,
 		State,
 		Magic,
