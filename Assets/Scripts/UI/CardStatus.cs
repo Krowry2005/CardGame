@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CardStatus : MonoBehaviour
 {
 	[Header("※必ずm_cardに対応する型のカードを入れること"),SerializeField]
-	Card m_card;
+	CardSetting m_card;
 
 	[SerializeField]
 	AttackCard m_attackCard;
@@ -29,16 +29,20 @@ public class CardStatus : MonoBehaviour
 
 		switch (m_card.GetCardType())
 		{
-			case Card.CardType.Attack:
+			case CardSetting.CardType.Attack:
 				m_textMeshProUGUI.text = "<color=red>ATK</color>" + "<color=red>"+m_attackCard.GetAttack()+"</color>";
 				break;
 
-			case Card.CardType.Defense:
+			case CardSetting.CardType.Defense:
 				m_textMeshProUGUI.text = "<color=blue>DEF</color>" + "<color=red>" +m_defenseCard.GetDefense()+ "</color>";
 				break;
 
-			case Card.CardType.Both:
+			case CardSetting.CardType.Both:
 				m_textMeshProUGUI.text = "<color=red>A</color>" + "<color=red>" + m_bothCard.GetAttack() + "</color>" + "<color=blue>D</color>" + "<color=blue>" + m_bothCard.GetDefense() + "</color>";
+				break;
+
+			default:
+
 				break;
 		}
 

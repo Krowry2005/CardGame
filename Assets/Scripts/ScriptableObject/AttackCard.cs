@@ -2,28 +2,16 @@ using System;
 using UnityEngine;
 
 [Serializable]
-[CreateAssetMenu(fileName = "Attack", menuName = "CreateAttackCard")]
-public class AttackCard : Card
+[CreateAssetMenu(fileName = "AttackCard", menuName = "CreateAttackCardSetting")]
+public class AttackCard : CardSetting
 {
-	public enum AttackAttribute
-	{
-		None,		//–³A‚à‚µ‚­‚Í•¨—
-		Fire,		//‰Š
-		Wind,		//•—
-		Water,		//…
-		Soil,		//“y
-		Electric,	//“d‹C
-		Dark,		//ˆÅ
-		Bright,		//Œõ
-}
-
 	[SerializeField]
-	AttackAttribute attackAttribute;
+	User.Attribute attackAttribute;
 
 	[SerializeField]
 	int attack;
 
-	public AttackAttribute GetAttackAttribute() 
+	public User.Attribute GetAttribute() 
 	{ return attackAttribute; }
 
 	public int GetAttack() 

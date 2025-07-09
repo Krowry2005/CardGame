@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 469e33d8653217f44b6caff952fb03c5, type: 3}
+  m_Name: "10..\u30AA\u30EA\u30CF\u30EB\u30B3\u30F3\u306E\u5263"
+  m_EditorClassIdentifier: 
+  card_id: 10
+  Rare: 5
+  card_image: {fileID: 21300000, guid: b612081374aef40ca836a2cecd70acbb, type: 3}
+  card_display_name: "\u30AA\u30EA\u30CF\u30EB\u30B3\u30F3\u3082\u3064\u308B\u304E"
+  card_name: "\u304A\u308A\u306F\u308B\u3053\u3093\u306E\u3064\u308B\u304E"
+  card_type: 0
+  information: "\u7279\u5225\u306A\u9078\u3070\u308C\u305F\u3082\u306E\u306B\u3057\u304B\u629C\u3051\u306A\u3055\u305D\u3046\u306A\u5263\n\u3044\u3064\u304B\u9B54\u738B\u3068\u304B\u5012\u3057\u3061\u3083\u3044\u305D\u3046\u306A\u5263"
+  attackAttribute: 0
+  attack: 15

@@ -8,9 +8,9 @@ public class PublicCardList:ScriptableObject
 {
 	//大本のカードリストを作る
 	[SerializeField]
-	private List<Card> publicCardList = new();
+	private List<CardSetting> publicCardList = new();
 
-	public List<Card> GetCardList()
+	public List<CardSetting> GetCardList()
 	{
 		return publicCardList;
 	}

@@ -5,6 +5,25 @@ using Unity.VisualScripting;
 
 public class User : MonoBehaviour
 {
+	public enum Attribute
+	{
+		None,       //無、もしくは物理
+		Fire,       //炎
+		Wind,       //風
+		Water,      //水
+		Soil,       //土
+		Electric,   //電気
+		Dark,       //闇
+		Bright,     //光	
+	}
+
+	public enum State
+	{
+		
+
+
+	}
+
 	[Header("最初のHP"), SerializeField]
 	int m_initHP;
 
@@ -18,7 +37,7 @@ public class User : MonoBehaviour
 	int m_numberHands;
 
 	[Header("持っているカードリスト")]
-	List<Card> m_cardList = new();
+	List<CardSetting> m_cardList = new();
 
 	HandCard m_handCard;
 
@@ -33,7 +52,7 @@ public class User : MonoBehaviour
 		m_handCard.DistributeCard(m_handCard.GetPublicCardList(),m_numberHands);
 	}
 
-	public void RemoveCard(Card card)
+	public void RemoveCard(CardSetting card)
 	{
 		//持っているカードリストからカードを減らす
 		m_cardList.Remove(card);
@@ -54,7 +73,7 @@ public class User : MonoBehaviour
 	{
 		// GameObjectとSampleScriptのペアを先に作っておく（GetComponentは1回だけ）
 		var objectScriptPairs = m_cardList
-			.Select(card => new { card, script = card.GetComponent<Card>() })
+			.Select(card => new { card, script = card.GetComponent<CardSetting>() })
 			.ToList();
 
 		// SampleScript.hp を使って降順ソート（値が大きい順）

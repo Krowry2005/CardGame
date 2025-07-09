@@ -2,37 +2,14 @@ using System;
 using UnityEngine;
 
 [Serializable]
-[CreateAssetMenu(fileName = "Both", menuName = "CreateBothCard")]
-public class BothCard : Card
+[CreateAssetMenu(fileName = "BothCard", menuName = "CreateBothCardSetting")]
+public class BothCard : CardSetting
 {
-	public enum AttackAttribute
-	{
-		None,       //無、もしくは物理
-		Fire,       //炎
-		Wind,       //風
-		Water,      //水
-		Soil,       //土
-		Electric,   //電気
-		Dark,       //闇
-		Bright,     //光
-	}
-	public enum DefenseAttribute
-	{
-		None,       //無、もしくは物理
-		Fire,       //炎
-		Wind,       //風
-		Water,      //水
-		Soil,       //土
-		Electric,   //電気
-		Dark,       //闇
-		Bright,     //光
-	}
+	[SerializeField]
+	User.Attribute attackAttribute;
 
 	[SerializeField]
-	AttackAttribute attackAttribute;
-
-	[SerializeField]
-	DefenseAttribute defenseAttribute;
+	User.Attribute defenseAttribute;
 
 	[SerializeField]
 	int attack;
@@ -40,9 +17,9 @@ public class BothCard : Card
 	[SerializeField]
 	int defense;
 
-	public AttackAttribute GetAttackAttribute()
+	public User.Attribute GetAttackAttribute()
 	{ return attackAttribute; }
-	public DefenseAttribute GetDefenseAttribute()
+	public User.Attribute GetDefenseAttribute()
 	{ return defenseAttribute; }
 
 	public int GetAttack()
