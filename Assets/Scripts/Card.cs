@@ -1,17 +1,32 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
 	CardSetting m_cardSetting;
-	CardSetting.CardType m_cardType;
-	int m_cardId;
-	Sprite m_sprite;
-	string m_DisplayName;
-	string m_cardName;
-	string m_protency;
 
-    void Start()
-    {
-        
-    }
+	private void Awake()
+	{
+		
+	}
+
+	private void Start()
+	{
+		
+	}
+
+	public void OnClick()
+	{
+		
+	}
+
+	public void DisplayUpdate()
+	{
+		gameObject.GetComponent<Image>().sprite = m_cardSetting.GetCardImage();
+	}
+
+	public void SetCard(CardSetting card)
+	{
+		m_cardSetting = card;
+	}
 }

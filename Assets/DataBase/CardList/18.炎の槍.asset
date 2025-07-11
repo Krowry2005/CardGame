@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card_id: 18
   Rare: 3
-  card_image: {fileID: 0}
+  card_image: {fileID: -2673918660345624066, guid: 9bb69bc03182e20448801ecba12f19d6, type: 3}
   card_display_name: "\u708E\u306E\u69CD"
   card_name: "\u307B\u306E\u304A\u306E\u3084\u308A"
   card_type: 0

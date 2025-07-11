@@ -17,13 +17,6 @@ public class User : MonoBehaviour
 		Bright,     //光	
 	}
 
-	public enum State
-	{
-		
-
-
-	}
-
 	[Header("最初のHP"), SerializeField]
 	int m_initHP;
 
@@ -39,6 +32,12 @@ public class User : MonoBehaviour
 	[Header("持っているカードリスト")]
 	List<CardSetting> m_cardList = new();
 
+	[Header("再使用可能なカード")]
+	List<CardSetting> m_reUseCardList = new();
+
+	int m_hp;
+	int m_mp;
+
 	HandCard m_handCard;
 
 	private void Awake()
@@ -50,10 +49,13 @@ public class User : MonoBehaviour
 	{
 		//最初の手札
 		m_handCard.DistributeCard(m_handCard.GetPublicCardList(),m_numberHands);
+		m_hp = m_initHP;
+		m_mp = m_initMP;
 	}
 
-	public void RemoveCard(CardSetting card)
+	public void UseCard(CardSetting card)
 	{
+		if(card.GetReUseApproval()) m_reUseCardList.Add(card);
 		//持っているカードリストからカードを減らす
 		m_cardList.Remove(card);
 		SortList();
@@ -69,6 +71,17 @@ public class User : MonoBehaviour
 		SortList();
 	}
 
+	public void OnDamage(int damage)
+	{
+		if (m_hp <= 0) return;
+		m_hp -= damage;
+	}
+
+	public void OnDeath()
+	{
+
+	}
+
 	public void SortList()  //リストのソート
 	{
 		// GameObjectとSampleScriptのペアを先に作っておく（GetComponentは1回だけ）
@@ -82,6 +95,4 @@ public class User : MonoBehaviour
 		// ソート結果からGameObjectのリストだけに再構成
 		m_cardList = objectScriptPairs.Select(pair => pair.card).ToList();
 	}
-
-
 }

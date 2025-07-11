@@ -28,32 +28,32 @@ public class TurnManager : MonoBehaviour
 
 	private void Update()
 	{
-		//ターンを切り替えて全員のターンが回ってきたらラウンド追加
-		switch (m_phase)
-		{
-			case Phase.Start:
-				//カードを増やす
-				m_turnUser.GetComponent<User>().IncreaseCard(m_numberOfCard);
+		////ターンを切り替えて全員のターンが回ってきたらラウンド追加
+		//switch (m_phase)
+		//{
+		//	case Phase.Start:
+		//		//カードを増やす
+		//		m_turnUser.GetComponent<User>().IncreaseCard(m_numberOfCard);
 
-				//持続ダメージ受けたりなんかおこったり、今後作る
+		//		//持続ダメージ受けたりなんかおこったり、今後作る
 
-				break;
+		//		break;
 
-			case Phase.Select:
-				//何のカードを使うかの選択
+		//	case Phase.Select:
+		//		//何のカードを使うかの選択
 
-				break;
+		//		break;
 
-			case Phase.Action:
-				//カードの実際の処理
+		//	case Phase.Action:
+		//		//カードの実際の処理
 
-				break;
+		//		break;
 
-			case Phase.End:
-				//ターン終了時の処理
+		//	case Phase.End:
+		//		//ターン終了時の処理
 
-				break;
-		}
+		//		break;
+		//}
 	}
 
 	private void OnMouseDown()

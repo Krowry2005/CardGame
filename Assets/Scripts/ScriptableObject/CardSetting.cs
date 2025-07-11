@@ -38,6 +38,9 @@ public class CardSetting : ScriptableObject
 	[SerializeField, TextArea(1, 4)]
 	string information = "1\n2\n3\n4";
 
+	[SerializeField]
+	bool reUse = false;
+
 	public int GetID()
 	{ return card_id;}
 
@@ -58,6 +61,11 @@ public class CardSetting : ScriptableObject
 
 	public string GetInformation()
 	{ return information;}
+
+	public bool GetReUseApproval()
+	{
+		return reUse;
+	}
 }
 
 
