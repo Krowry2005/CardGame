@@ -1,19 +1,13 @@
 using System;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "AttackCard", menuName = "ScriptableObject/CreateAttackCard")]
 [Serializable]
-[CreateAssetMenu(fileName = "AttackCard", menuName = "CreateAttackCardSetting")]
-public class AttackCard : CardSetting
+public class AttackCard : CardData
 {
 	[SerializeField]
-	User.Attribute attackAttribute;
+	int m_attack;
 
-	[SerializeField]
-	int attack;
-
-	public User.Attribute GetAttribute() 
-	{ return attackAttribute; }
-
-	public int GetAttack() 
-	{ return attack; }
+	public int GetAttack()
+	{return m_attack;}
 }

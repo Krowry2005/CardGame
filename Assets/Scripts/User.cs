@@ -1,98 +1,45 @@
+using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
-using Unity.VisualScripting;
 
 public class User : MonoBehaviour
 {
-	public enum Attribute
-	{
-		None,       //無、もしくは物理
-		Fire,       //炎
-		Wind,       //風
-		Water,      //水
-		Soil,       //土
-		Electric,   //電気
-		Dark,       //闇
-		Bright,     //光	
-	}
+	string UserName;
+	int m_health;
+	int m_magicPoint;
+	int m_money;
 
-	[Header("最初のHP"), SerializeField]
-	int m_initHP;
+	[Header("HPの初期値"),SerializeField]
+	static readonly int InitHealth;
 
-	[Header("最初のMP"), SerializeField]
-	int m_initMP;
+	[Header("MPの初期値"),SerializeField]
+	static readonly int InitMagicPoint;
 
-	[Header("最初の￥"),SerializeField]
-	int m_initMoney;
+	[Header("お金の初期値"),SerializeField]
+	static readonly int InitMoney;
 
-	[Header("最初の手札の数"), SerializeField]
-	int m_numberHands;
-
-	[Header("持っているカードリスト")]
-	List<CardSetting> m_cardList = new();
-
-	[Header("再使用可能なカード")]
-	List<CardSetting> m_reUseCardList = new();
-
-	int m_hp;
-	int m_mp;
-
-	HandCard m_handCard;
-
-	private void Awake()
-	{
-		m_handCard = GameObject.FindGameObjectWithTag("GameController").GetComponent<HandCard>();
-	}
+	List<CardData> m_cardList = new();
 
 	private void Start()
 	{
-		//最初の手札
-		m_handCard.DistributeCard(m_handCard.GetPublicCardList(),m_numberHands);
-		m_hp = m_initHP;
-		m_mp = m_initMP;
+		ResetStatus();
 	}
 
-	public void UseCard(CardSetting card)
-	{
-		if(card.GetReUseApproval()) m_reUseCardList.Add(card);
-		//持っているカードリストからカードを減らす
-		m_cardList.Remove(card);
-		SortList();
-	}
-
-	public void IncreaseCard(int num)
-	{
-		for(int i = 0; i < num; i++)
-		{
-			//手札に加える
-			m_cardList.AddRange(m_handCard.DistributeCard(m_handCard.GetPublicCardList(), num));
-		}
-		SortList();
-	}
-
-	public void OnDamage(int damage)
-	{
-		if (m_hp <= 0) return;
-		m_hp -= damage;
-	}
-
-	public void OnDeath()
+	public void Damage(int damage)
 	{
 
 	}
 
-	public void SortList()  //リストのソート
+	public void UseMagic()
 	{
-		// GameObjectとSampleScriptのペアを先に作っておく（GetComponentは1回だけ）
-		var objectScriptPairs = m_cardList
-			.Select(card => new { card, script = card.GetComponent<CardSetting>() })
-			.ToList();
 
-		// SampleScript.hp を使って降順ソート（値が大きい順）
-		objectScriptPairs.Sort((a, b) => b.script.GetID().CompareTo(a.script.GetID()));
-
-		// ソート結果からGameObjectのリストだけに再構成
-		m_cardList = objectScriptPairs.Select(pair => pair.card).ToList();
 	}
+
+	private void ResetStatus()
+	{
+		m_health = InitHealth;
+		m_magicPoint = InitMagicPoint;
+		m_money = InitMoney;
+	}
+
 }
