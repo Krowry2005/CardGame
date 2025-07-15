@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb393ac7149a0734d878075e0440e482, type: 3}
+  m_Name: CardBase
+  m_EditorClassIdentifier: 
+  SheetName: Assets/CardData.xlsx
+  WorksheetName: CardBase
+  dataArray:
+  - id: 0
+    cardtype: 4
+    name_jp: "\u7948\u308B"
+    name_en: inoru
+    information: "\u624B\u672D\u3092\u58F1\u679A\u5F15\u304F"
+  - id: 1
+    cardtype: 0
+    name_jp: "\u6B20\u3051\u305F\u3064\u308B\u304E"
+    name_en: kaketaturugi
+    information: 
+  - id: 2
+    cardtype: 0
+    name_jp: "\u72E9\u4EBA\u306E\u5F13"
+    name_en: kariudonoyumi
+    information: 
+  - id: 7
+    cardtype: 0
+    name_jp: "\u76FE"
+    name_en: tate
+    information: 
+  - id: 9
+    cardtype: 5
+    name_jp: "\u5200\u5320\u306E\u91D1\u5E8A"
+    name_en: tousyounokanadoko
+    information: "\u6B20\u3051\u305F\u5263\u3092\u3064\u308B\u304E\u30B7\u30EA\u30FC\u30BA\u306B"

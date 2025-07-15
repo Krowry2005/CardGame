@@ -1,47 +1,30 @@
 
+using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CardData", menuName = "ScriptableObject/CardData")]
-[Serializable]
-public class CardData : ScriptableObject
+public class CardData : MonoBehaviour 
 {
-	public enum CardType
+	int m_cardID;
+
+	public int GetID()
 	{
-		Attack,
-		Defence,
-		Magic,
-		Spirit
+		return m_cardID;
 	}
 
-	[SerializeField]
-	CardType m_cardType;
+	public void SetCard(int id)
+	{
+		m_cardID = id;
+	}
 
-	[SerializeField]
-	int m_id;
+	public void OnClick()
+	{
 
-	[SerializeField]
-	string m_name;
-
-	[SerializeField]
-	Sprite m_sprite;
-
-	[SerializeField]
-	string m_information;
-
-	[SerializeField]
-	string m_miniInformation;
-
-	public CardType GetCardType() { return m_cardType; }
-
-	public int GetID() { return m_id; }
-
-	public string GetName() { return m_name; }
-
-	public Sprite GetSprite() { return m_sprite; }
-
-	public string GetInformation() { return m_information; }
-
-	public string GetMinimumInfo() { return m_miniInformation; }
+	}
 }
+
+
+
+
 

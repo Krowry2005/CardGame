@@ -9,7 +9,7 @@ public class PublicCardList : MonoBehaviour
 
 	private void Start()
 	{
-		Debug.Log(GetCard(0).GetName());
+		
 	}
 
 	public CardData GetCard(int id)
