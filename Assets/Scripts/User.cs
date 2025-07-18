@@ -30,6 +30,11 @@ public class User : MonoBehaviour
 
 	}
 
+	public void Heal(int heal)
+	{
+
+	}
+
 	public void UseMagic()
 	{
 

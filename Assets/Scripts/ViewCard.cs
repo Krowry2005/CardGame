@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.Burst.Intrinsics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,7 +17,6 @@ public class ViewCard : MonoBehaviour
 	[Header("ScrollviewのContentを選択"),SerializeField]
 	Transform m_cardView;
 
-	[Header("ここで保持してる変数をもとに表示するものも変化"),SerializeField]
 	CardType m_cardType;
 
 	private void Awake()
@@ -26,12 +26,16 @@ public class ViewCard : MonoBehaviour
 
 	private void Start()
 	{
-		m_cardType = CardType.Length;
 	}
-
 
 	public void OnClick()
 	{
+		//表示前に全削除
+		foreach (Transform n in m_cardView.transform)
+		{
+			Destroy(n.gameObject);
+		}
+
 		//クリックされたときの状態に応じて検索をかけたりする
 		switch (m_cardType)
 		{
@@ -39,9 +43,19 @@ public class ViewCard : MonoBehaviour
 
 				break;
 
+			case CardType.Defence:
 
+				break;
 
-			case CardType.Length:
+			case CardType.Magic:
+
+				break;
+
+			case CardType.Spirit:
+
+				break;
+
+			case CardType.All:
 				//すべてのカードの表示
 				//なんかforeach使えんのでfor文で回す
 				for(int i = 0; i < m_cardBase.dataArray.Length; i++)
@@ -54,8 +68,11 @@ public class ViewCard : MonoBehaviour
 					card.GetComponent<CardData>().SetCard(m_cardBase.dataArray[i].ID);
 				}
 				break;
+
+			default: //デフォルトでは
+
+
+				break;
 		}
-
 	}
-
 }

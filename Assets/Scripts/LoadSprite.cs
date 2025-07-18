@@ -9,8 +9,8 @@ public class LoadSprite : MonoBehaviour
 
 	private void Awake()
 	{
+		//Resourcesƒtƒ@ƒCƒ‹‚É‘¶İ‚·‚é‚·‚×‚Ä‚Ì‰æ‘œ‚ğæ“¾
 		m_imageList.AddRange(Resources.LoadAll<Sprite>(""));
-		Debug.Log(m_imageList.Count());
 	}
 
 	public Sprite GetSprite(int id)

@@ -350,7 +350,7 @@ MonoBehaviour:
       - m_Target: {fileID: 573135376}
         m_TargetAssemblyTypeName: ViewCard, Assembly-CSharp
         m_MethodName: OnClick
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -807,7 +807,6 @@ MonoBehaviour:
   m_card: {fileID: 1071286643163490945, guid: 7606a0d5aaa11ad4c89b4aca0f4572fa, type: 3}
   m_cardBase: {fileID: 11400000, guid: 88765592cc394354d84892d1b4408b1c, type: 2}
   m_cardView: {fileID: 1054860320}
-  m_cardType: 6
 --- !u!4 &573135377
 Transform:
   m_ObjectHideFlags: 0
