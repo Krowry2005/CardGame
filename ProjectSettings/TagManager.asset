@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - UserAmount
+  - ViewInfor
   layers:
   - Default
   - TransparentFX

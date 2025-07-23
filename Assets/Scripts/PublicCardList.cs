@@ -5,17 +5,12 @@ using UnityEngine;
 public class PublicCardList : MonoBehaviour
 {
 	[SerializeField]
-	List<CardData> m_publicCardList = new();
+	CardBase m_publicCard;
 
-	private void Start()
-	{
-		
-	}
+	public CardBaseData GetCard(int id)
+	{ return m_publicCard.dataArray[id]; }
 
-	public CardData GetCard(int id)
-	{
-		return m_publicCardList[id];
-	}
+	/*取得方法　プロパティで取得する*/
 }
 
 

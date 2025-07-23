@@ -4,7 +4,7 @@ public enum CardType
 {
 	All,		//•\¦‚Ì‚½‚ß
 	Attack,		//UŒ‚
-	Defence,	//–hŒä
+	Defense,	//–hŒä
 	Heal,
 	Magic,		//–‚–@
 	Spirit,		//¸—ìAˆ«–‚
@@ -13,6 +13,7 @@ public enum CardType
 	Summon,
 	Abnormality,
 	Cost,
+	Draw,
 
 	Length
 }
@@ -20,6 +21,8 @@ public enum CardType
 public enum Target
 {
 	All,
+	Ally,
+	Enemy,
 	Select,
 	Random,
 	Me,

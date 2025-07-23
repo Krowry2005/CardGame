@@ -2,77 +2,52 @@ using System.Collections.Generic;
 using Unity.Burst.Intrinsics;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class ViewCard : MonoBehaviour
 {
-	[Header("画像を保持している"),SerializeField]
-	LoadSprite m_loadSprite;
+	int m_id = 0;
 
-	[Header("表示するもの"),SerializeField]
-	GameObject m_card;
+	GameObject m_viewInfor;
+	PublicCardList m_cardList;
 
-	[Header("エクセルで作ったカードのデータ"),SerializeField]
-	CardBase m_cardBase;
+	[SerializeField]
+	Image m_image;
 
-	[Header("ScrollviewのContentを選択"),SerializeField]
-	Transform m_cardView;
+	[SerializeField]
+	GameObject m_usedCard;
 
-	CardType m_cardType;
-
-	private void Awake()
+	public void Awake()
 	{
-		
+		GetComponent<Button>().onClick.AddListener(OnClick);
+		m_viewInfor = GameObject.FindGameObjectWithTag("ViewInfor");
+		GameObject gameController = GameObject.FindGameObjectWithTag("GameController");
+		m_cardList = gameController.GetComponent<PublicCardList>();
 	}
 
-	private void Start()
+	public void SetSprite(Sprite image)
 	{
+		m_image.sprite = image;
+	}
+
+	public void SetId(int id)
+	{
+		m_id = id;
 	}
 
 	public void OnClick()
+	//カード情報を生成してIDに紐づいた情報を渡す
 	{
-		//表示前に全削除
-		foreach (Transform n in m_cardView.transform)
+		//既に情報が開かれてる場合は削除
+		foreach(Transform parent in m_viewInfor.transform)
 		{
-			Destroy(n.gameObject);
+			Destroy(parent.gameObject);
 		}
 
-		//クリックされたときの状態に応じて検索をかけたりする
-		switch (m_cardType)
-		{
-			case CardType.Attack:
-
-				break;
-
-			case CardType.Defence:
-
-				break;
-
-			case CardType.Magic:
-
-				break;
-
-			case CardType.Spirit:
-
-				break;
-
-			case CardType.All:
-				//すべてのカードの表示
-				//なんかforeach使えんのでfor文で回す
-				for(int i = 0; i < m_cardBase.dataArray.Length; i++)
-				{
-					//真っ白な画像を生成、保持
-					GameObject card = Instantiate(m_card, m_cardView);
-
-					//現在生成中のIDを使って画像を変化
-					card.GetComponent<Image>().sprite = m_loadSprite.GetSprite(m_cardBase.dataArray[i].ID);
-					card.GetComponent<CardData>().SetCard(m_cardBase.dataArray[i].ID);
-				}
-				break;
-
-			default: //デフォルトでは
-
-
-				break;
-		}
+		//カードを生成
+		GameObject usedCard = Instantiate(m_usedCard, m_viewInfor.transform);
+		Debug.Log(m_image.sprite);
+		Debug.Log(m_cardList.GetCard(m_id));
+		usedCard.GetComponent<UsedCard>().SetInformation(m_image.sprite, m_cardList.GetCard(m_id));
 	}
 }

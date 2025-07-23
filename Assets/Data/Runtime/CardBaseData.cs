@@ -28,4 +28,20 @@ public class CardBaseData
   string information;
   public string Information { get {return information; } set { this.information = value;} }
   
+  [SerializeField]
+  int value;
+  public int Value { get {return value; } set { this.value = value;} }
+  
+  [SerializeField]
+  bool valuecard;
+  public bool Valuecard { get {return valuecard; } set { this.valuecard = value;} }
+  
+  [SerializeField]
+  Target target;
+  public Target TARGET { get {return target; } set { this.target = value;} }
+  
+  [SerializeField]
+  string magictype;
+  public string Magictype { get {return magictype; } set { this.magictype = value;} }
+  
 }
